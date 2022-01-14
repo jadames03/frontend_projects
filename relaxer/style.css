@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: #224941 url('./imgs/bg.jpg') no-repeat center center/cover;
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  min-height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+}
+/* adjusting everything in body tag. displaying elements as a block-level flex container. making items centered. 100viewport height for entire page.  */
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  height: 300px;
+  width: 300px;
+  position: relative;
+  transform: scale(1);
+}
+/* container that contains everything */
+
+.circle {
+  background-color: #010f1c;
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+/* positioning of cirlce as well as adjusting width and height */
+.gradient-circle {
+  background: conic-gradient(
+      /* gradient with color transitions rotated around a center point */
+    #55b7a4 0%,
+    #4ca493 40%,
+    #fff 40%,
+    #fff 60%,
+    #336d62 60%,
+    #2a5b52 100%
+  );
+  height: 320px;
+  width: 320px;
+  z-index: -2;
+  border-radius: 50%;
+  position: absolute;
+  top: -10px;
+  left: -10px;
+}
+.pointer {
+    background-color: #fff;
+    border-radius: 50%;
+    height: 20px;
+    width: 20px;
+    display: block;
+  }
+  /* pointer inside pointer-container (result of that...rotate animation applied). 
+     border-radius: 50% makes it look like a circle. */
+  
+  .pointer-container {
+    position: absolute;
+    top: -40px;
+    left: 140px;
+    width: 20px;
+    height: 190px;
+    animation: rotate 7.5s linear forwards infinite;
+    transform-origin: bottom center;
+  }
+  /* container that uses the rotate animation for 7.5 secs long in one direction */
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+  
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  /* rotate animation sequence...doing a 360 */
+  
+  .container.grow {
+    animation: grow 3s linear forwards;
+  }
+  /* make animation 3 secs long and linear fowards */
+  
+  @keyframes grow {
+    from {
+      transform: scale(1);
+    }
+  
+    to {
+      transform: scale(1.2);
+    }
+  }
+  /* grow animation sequence...transforming to a bigger scale */
+  
+  .container.shrink {
+    animation: shrink 3s linear forwards;
+  }
+  /* make animation 3 secs long and linear fowards */
+  
+  @keyframes shrink {
+    from {
+      transform: scale(1.2);
+    }
+  
+    to {
+      transform: scale(1);
+    }
+  }
+  /* shrink animation sequence...transforming to a smaller scale */
